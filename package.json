@@ -1,0 +1,20 @@
+{
+  "name": "testproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:docker": "docker run -it --rm --ipc=host -v  D:\\Automation\\Practise\\TS\\TestProject:/tests -w /tests mcr.microsoft.com/playwright:v1.33.0-focal npm run test:dev",
+    "test:dev": "NODE_ENV=dev npx playwright test",
+    "test:staging": "NODE_ENV=staging npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.33.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
