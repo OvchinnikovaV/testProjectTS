@@ -6,13 +6,27 @@
   "scripts": {
     "test:docker": "docker run -it --rm --ipc=host -v  D:\\Automation\\Practise\\TS\\TestProject:/tests -w /tests mcr.microsoft.com/playwright:v1.33.0-focal npm run test:dev",
     "test:dev": "NODE_ENV=dev npx playwright test",
-    "test:staging": "NODE_ENV=staging npx playwright test"
+    "test:staging": "NODE_ENV=staging npx playwright test",
+    "lint": "eslint src/**/*.ts",
+    "lint-fix": "eslint --fix src/**/*.ts",
+    "pretty": "prettier --write 'src/**/*.ts'",
+    "prepare": "husky install",
+    "precommit": "npm run lint-fix && npm run pretty",
+    "prepush": "npm run lint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.33.0"
+    "@playwright/test": "^1.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "eslint": "^8.41.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8"
   },
   "dependencies": {
     "dotenv": "^16.0.3"

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import {test, expect} from '@playwright/test';
 import {LoginPage} from "../src/pages/login-page";
 
 test('should login with valid data', async ({page}) => {
@@ -6,9 +6,9 @@ test('should login with valid data', async ({page}) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.goto();
-    await loginPage.fillCredentials(process.env.USER_NAME, process.env.PASSWORD);
-    await loginPage.submitCredentials();
-    await expect(page.getByText('Swag Labs'), 'Inventory page is loaded').toBeVisible();
+    await loginPage.fillCredentials(process.env.USER_NAME, process.env.PASSWORD)
+    await loginPage.submitCredentials()
+    await expect(page.getByText('Swag Labs'), 'Inventory page is loaded').toBeVisible()
 })
 
 test('try to login with invalid username', async ({page}) => {
