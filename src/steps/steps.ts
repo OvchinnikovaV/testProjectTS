@@ -1,13 +1,16 @@
-import {LoginPage} from "../pages/login-page";
-import {CheckoutPage} from "../pages/checkout-page";
-import {CartPage} from "../pages/cart-page";
-import {InventoryPage} from "../pages/inventory-page";
-import {Page} from "@playwright/test";
+import { Page } from '@playwright/test';
+import { LoginPage } from '../pages/login-page';
+import { CheckoutPage } from '../pages/checkout-page';
+import { CartPage } from '../pages/cart-page';
+import { InventoryPage } from '../pages/inventory-page';
 
 export class Steps{
     readonly loginPage: LoginPage;
+
     readonly inventoryPage: InventoryPage;
+
     readonly cartPage: CartPage;
+
     readonly checkoutPage: CheckoutPage;
 
     constructor(page: Page) {

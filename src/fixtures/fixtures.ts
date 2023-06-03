@@ -1,5 +1,5 @@
-import {Steps} from "../steps/steps";
 import { test as base } from '@playwright/test';
+import { Steps } from '../steps/steps';
 
 type MyFixtures = {
     steps: Steps;

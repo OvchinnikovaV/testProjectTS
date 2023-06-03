@@ -1,11 +1,14 @@
-import {Locator, Page, expect } from "@playwright/test";
-import {test} from "../fixtures/fixtures";
+import { Locator, Page, expect } from '@playwright/test';
+import { test } from '../fixtures/fixtures';
 
 
 export class InventoryPage {
     readonly page: Page;
+
     readonly burgerButton: Locator;
+
     readonly cartButton: Locator;
+
     readonly addToCartButton: Locator;
 
 
@@ -15,23 +18,25 @@ export class InventoryPage {
         this.cartButton = page.locator('#shopping_cart_container');
         this.addToCartButton = page.getByText('Add to cart');
     }
+
     async goto(){
-        await this.page.goto('https://www.saucedemo.com/inventory.html')
+        await this.page.goto('https://www.saucedemo.com/inventory.html');
     }
 
     async addFirstItemToCart(){
         await this.addToCartButton.first().click();
     }
+
     async addItemWithNameToCart(name: string){
         test.info().annotations.push({ type: 'name', description: name });
 
         await test.step(`Add item with name ${name} to cart`, async ()=> {
-            await this.page.locator('.inventory_item').filter({hasText: name})
+            await this.page.locator('.inventory_item').filter({ hasText: name })
                 .locator(this.addToCartButton)
                 .click();
-        })
+        });
 
-        console.log(name)
+        console.log(name);
     }
 
     async goToCart() {

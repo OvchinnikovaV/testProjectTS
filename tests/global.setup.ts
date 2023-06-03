@@ -1,8 +1,7 @@
-import {expect, test} from "../src/fixtures/fixtures";
-import {LoginPage} from "../src/pages/login-page";
+import { expect, test } from '../src/fixtures/fixtures';
+import { LoginPage } from '../src/pages/login-page';
 
-test('should login with valid data', async ({page, steps}) => {
-
+test('should login with valid data', async ({ page, steps }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.goto();
@@ -10,4 +9,4 @@ test('should login with valid data', async ({page, steps}) => {
     await loginPage.submitCredentials();
     await expect(steps.inventoryPage.addToCartButton.first()).toBeVisible();
     await page.context().storageState({ path: process.env.AUTH_PATH });
-})
+});
